@@ -22525,9 +22525,9 @@ cr.behaviors.lunarray_LiteTween = function(runtime)
 }());
 cr.getObjectRefTable = function () { return [
 	cr.plugins_.Function,
-	cr.plugins_.JSON_plus_plus,
-	cr.plugins_.Touch,
 	cr.plugins_.TiledBg,
+	cr.plugins_.Touch,
+	cr.plugins_.JSON_plus_plus,
 	cr.plugins_.Sprite,
 	cr.plugins_.Text,
 	cr.behaviors.lunarray_LiteTween,
