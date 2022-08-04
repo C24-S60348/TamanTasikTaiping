@@ -1,3 +1,7 @@
 {
-	"item": "7,7,8,1,1,7"
+	"item": "7,7,8,1,1,7",
+	"scale": "1,1,1,1.3,1.1,1",
+	"tajuk" : "Think before you drop!",
+	"garisan1" : 658,
+	"garisan2" : 1058
 }

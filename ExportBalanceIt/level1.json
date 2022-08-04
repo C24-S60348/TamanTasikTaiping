@@ -1,3 +1,8 @@
 {
-	"item": "1,1,1,1,1"
+	"item": "1,1,1,1,1",
+	"scale": "1,1,1,1,1",
+	"tajuk" : "Try drop and balance it as high as you can!        Don't let any single shape fall!",
+	"garisan1" : 658,
+	"garisan2" : 1058
+
 }
