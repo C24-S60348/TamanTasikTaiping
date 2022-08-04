@@ -22590,6 +22590,8 @@ cr.getObjectRefTable = function () { return [
 	cr.system_object.prototype.acts.AddVar,
 	cr.plugins_.Function.prototype.cnds.OnFunction,
 	cr.system_object.prototype.cnds.CompareVar,
+	cr.plugins_.Text.prototype.acts.Destroy,
+	cr.plugins_.TiledBg.prototype.acts.Destroy,
 	cr.plugins_.Sprite.prototype.cnds.IsOverlapping,
 	cr.system_object.prototype.cnds.Every,
 	cr.plugins_.Sprite.prototype.acts.MoveToTop,
