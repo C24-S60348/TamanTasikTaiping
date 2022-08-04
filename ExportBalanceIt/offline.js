@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1659545685,
+	"version": 1659605759,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -16,12 +16,20 @@
 		"images/cancelput-sheet0.png",
 		"images/taklehtekan-sheet0.png",
 		"images/garisan2.png",
+		"images/counter-sheet0.png",
+		"images/nextlevelbutton-sheet0.png",
+		"images/reloadgame-sheet0.png",
+		"images/homebutton-sheet0.png",
 		"icon-16.png",
 		"icon-32.png",
 		"icon-114.png",
 		"icon-128.png",
 		"icon-256.png",
 		"loading-logo.png",
-		"level1.json"
+		"level1.json",
+		"level5.json",
+		"level2.json",
+		"level3.json",
+		"level4.json"
 	]
 }
