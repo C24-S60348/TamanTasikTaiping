@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1659633841,
+	"version": 1659635107,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -18,6 +18,7 @@
 		"images/garisan2.png",
 		"images/counter-sheet0.png",
 		"images/nextlevelbutton-sheet0.png",
+		"images/nextlevelbutton-sheet1.png",
 		"images/reloadgame-sheet0.png",
 		"images/homebutton-sheet0.png",
 		"icon-16.png",
