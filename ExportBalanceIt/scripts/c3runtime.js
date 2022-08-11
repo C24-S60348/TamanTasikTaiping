@@ -3892,6 +3892,14 @@ value:this._waitTime,onedit:v=>this._waitTime=v},{name:prefix+".properties.fade-
 }
 
 {
+'use strict';{const C3=self.C3;C3.Behaviors.wrap=class WrapBehavior extends C3.SDKBehaviorBase{constructor(opts){super(opts)}Release(){super.Release()}}}{const C3=self.C3;C3.Behaviors.wrap.Type=class WrapType extends C3.SDKBehaviorTypeBase{constructor(behaviorType){super(behaviorType)}Release(){super.Release()}OnCreate(){}}}
+{const C3=self.C3;const MODE=0;const bound=new C3.Rect;C3.Behaviors.wrap.Instance=class WrapInstance extends C3.SDKBehaviorInstanceBase{constructor(behInst,properties){super(behInst);this._mode=0;if(properties)this._mode=properties[MODE];this._StartTicking()}Release(){super.Release()}SaveToJson(){return{"m":this._mode}}LoadFromJson(o){this._mode=o["m"]}Tick(){const wi=this._inst.GetWorldInfo();const layer=wi.GetLayer();const layout=layer.GetLayout();const bbox=wi.GetBoundingBox();if(this._mode===
+0)bound.set(0,0,layout.GetWidth(),layout.GetHeight());else bound.copy(layer.GetViewport());if(bbox.getRight()<bound.getLeft()){wi.SetX(bound.getRight()-1+(wi.GetX()-bbox.getLeft()));wi.SetBboxChanged()}else if(bbox.getLeft()>bound.getRight()){wi.SetX(bound.getLeft()+1-(bbox.getRight()-wi.GetX()));wi.SetBboxChanged()}else if(bbox.getBottom()<bound.getTop()){wi.SetY(bound.getBottom()-1+(wi.GetY()-bbox.getTop()));wi.SetBboxChanged()}else if(bbox.getTop()>bound.getBottom()){wi.SetY(bound.getTop()+1-(bbox.getBottom()-
+wi.GetY()));wi.SetBboxChanged()}}GetPropertyValueByIndex(index){switch(index){case MODE:return this._mode}}SetPropertyValueByIndex(index,value){switch(index){case MODE:this._mode=value;break}}}}{const C3=self.C3;C3.Behaviors.wrap.Cnds={}}{const C3=self.C3;C3.Behaviors.wrap.Acts={}}{const C3=self.C3;C3.Behaviors.wrap.Exps={}};
+
+}
+
+{
 const C3 = self.C3;
 self.C3_GetObjectRefTable = function () {
 	return [
@@ -3908,6 +3916,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Json,
 		C3.Plugins.AJAX,
 		C3.Behaviors.Fade,
+		C3.Behaviors.wrap,
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Behaviors.Tween.Acts.TweenTwoProperties,
 		C3.Plugins.Touch.Cnds.OnTapGestureObject,
@@ -3946,8 +3955,10 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Function.Acts.CallFunction,
 		C3.Plugins.Text.Acts.SetText,
 		C3.Plugins.System.Cnds.Compare,
+		C3.Plugins.System.Exps.int,
 		C3.Plugins.System.Exps.tokenat,
 		C3.Plugins.System.Cnds.CompareBoolVar,
+		C3.Plugins.Sprite.Acts.SetPos,
 		C3.Plugins.Touch.Cnds.IsTouchingObject,
 		C3.Plugins.Sprite.Cnds.IsBoolInstanceVarSet,
 		C3.Plugins.Sprite.Acts.SetBoolInstanceVar,
@@ -3959,8 +3970,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.Physics.Acts.SetEnabled,
 		C3.Plugins.Sprite.Acts.SetInstanceVar,
 		C3.Plugins.System.Exps.float,
-		C3.Plugins.System.Exps.int,
-		C3.Plugins.Sprite.Acts.SetPos,
 		C3.Plugins.Sprite.Cnds.IsOnScreen,
 		C3.Plugins.Sprite.Acts.Destroy,
 		C3.Plugins.System.Acts.AddVar,
@@ -3980,6 +3989,8 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Acts.RestartLayout,
 		C3.Plugins.Sprite.Cnds.OnDestroyed,
 		C3.Plugins.Sprite.Cnds.IsOutsideLayout,
+		C3.Plugins.System.Cnds.EveryTick,
+		C3.Behaviors.Physics.Acts.ApplyForce,
 		C3.Plugins.System.Acts.SetBoolVar,
 		C3.Behaviors.Fade.Acts.SetFadeInTime,
 		C3.Behaviors.Fade.Acts.SetFadeOutTime,
@@ -3988,8 +3999,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.Fade.Acts.StartFade,
 		C3.Plugins.Sprite.Cnds.OnCollision,
 		C3.Plugins.System.Acts.SetTimescale,
-		C3.Plugins.System.Cnds.OnLayoutEnd,
-		C3.Plugins.Sprite.Exps.AnimationFrame
+		C3.Plugins.System.Cnds.OnLayoutEnd
 	];
 };
 self.C3_JsPropNameTable = [
@@ -4028,14 +4038,19 @@ self.C3_JsPropNameTable = [
 	{Fade: 0},
 	{Sprite2: 0},
 	{Sprite3: 0},
+	{level: 0},
 	{Nombor: 0},
+	{backgroundPass: 0},
+	{Bintang: 0},
+	{infoTutorial: 0},
+	{Wrap: 0},
+	{GreenYellowRed: 0},
 	{levelJSON: 0},
 	{dataItem: 0},
 	{dataScale: 0},
 	{faceFrame: 0},
 	{boxYgKe: 0},
 	{startCount: 0},
-	{level: 0},
 	{counting: 0},
 	{counting2: 0},
 	{canPlay: 0}
@@ -4191,11 +4206,23 @@ self.C3_ExpressionFuncs = [
 			return () => n0.ExpObject("tajuk");
 		},
 		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("adaInfo");
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			return () => f0(n1.ExpObject("infoFrame"));
+		},
+		() => 540,
+		() => 775,
+		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const v1 = p._GetNode(1).GetVar();
 			const v2 = p._GetNode(2).GetVar();
 			return () => f0(v1.GetValue(), v2.GetValue(), ",");
 		},
+		() => 1665,
 		() => 0.1,
 		() => 4,
 		() => 50,
@@ -4225,6 +4252,7 @@ self.C3_ExpressionFuncs = [
 			const v1 = p._GetNode(1).GetVar();
 			return () => ("Level" + ((f0(v1.GetValue()) + 1)).toString());
 		},
+		() => 1500,
 		() => 3,
 		() => 558,
 		() => 0.8,
@@ -4244,7 +4272,7 @@ self.C3_ExpressionFuncs = [
 		() => 10,
 		p => {
 			const n0 = p._GetNode(0);
-			return () => ("Level" + (n0.ExpObject()).toString());
+			return () => ("Level" + (n0.ExpInstVar()).toString());
 		}
 ];
 
