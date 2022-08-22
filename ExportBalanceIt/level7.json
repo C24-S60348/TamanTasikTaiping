@@ -1,0 +1,10 @@
+{
+	"levelname" : "Level 7",
+	"item": "0,1,1,2,0,1",
+	"scale": "2,1,1,1,2,1",
+	"tajuk" : "Tower",
+	"garisan1" : 658,
+	"garisan2" : 1058,
+	"adaInfo" : 0,
+	"infoFrame" : 3
+}

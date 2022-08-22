@@ -3947,15 +3947,18 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Exps.mid,
 		C3.Plugins.System.Exps.layoutname,
 		C3.Plugins.AJAX.Acts.Request,
+		C3.Plugins.Sprite.Acts.SetVisible,
 		C3.Plugins.AJAX.Cnds.OnComplete,
-		C3.Plugins.Text.Cnds.CompareInstanceVar,
 		C3.Plugins.Json.Acts.Parse,
 		C3.Plugins.AJAX.Exps.LastData,
 		C3.Plugins.Json.Exps.Get,
 		C3.Plugins.Function.Acts.CallFunction,
-		C3.Plugins.Text.Acts.SetText,
 		C3.Plugins.System.Cnds.Compare,
 		C3.Plugins.System.Exps.int,
+		C3.Plugins.System.Acts.SetBoolVar,
+		C3.Plugins.System.Acts.Wait,
+		C3.Plugins.Text.Cnds.CompareInstanceVar,
+		C3.Plugins.Text.Acts.SetText,
 		C3.Plugins.System.Exps.tokenat,
 		C3.Plugins.System.Cnds.CompareBoolVar,
 		C3.Plugins.Sprite.Acts.SetPos,
@@ -3964,9 +3967,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Acts.SetBoolInstanceVar,
 		C3.Plugins.Text.Acts.SetOpacity,
 		C3.Behaviors.Flash.Acts.Flash,
-		C3.Plugins.System.Acts.Wait,
 		C3.Plugins.System.Cnds.Else,
-		C3.Plugins.Sprite.Acts.SetVisible,
 		C3.Behaviors.Physics.Acts.SetEnabled,
 		C3.Plugins.Sprite.Acts.SetInstanceVar,
 		C3.Plugins.System.Exps.float,
@@ -3990,14 +3991,17 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Cnds.OnDestroyed,
 		C3.Plugins.Sprite.Cnds.IsOutsideLayout,
 		C3.Plugins.System.Cnds.EveryTick,
-		C3.Behaviors.Physics.Acts.ApplyForce,
-		C3.Plugins.System.Acts.SetBoolVar,
+		C3.Behaviors.Physics.Acts.SetVelocity,
+		C3.Behaviors.Physics.Exps.VelocityY,
+		C3.Plugins.Sprite.Cnds.OnCollision,
+		C3.Plugins.Sprite.Acts.SetSize,
+		C3.Plugins.Sprite.Exps.Width,
+		C3.Plugins.Sprite.Exps.Height,
 		C3.Behaviors.Fade.Acts.SetFadeInTime,
 		C3.Behaviors.Fade.Acts.SetFadeOutTime,
 		C3.Behaviors.Fade.Acts.RestartFade,
 		C3.Behaviors.Tween.Acts.TweenOneProperty,
 		C3.Behaviors.Fade.Acts.StartFade,
-		C3.Plugins.Sprite.Cnds.OnCollision,
 		C3.Plugins.System.Acts.SetTimescale,
 		C3.Plugins.System.Cnds.OnLayoutEnd
 	];
@@ -4043,8 +4047,12 @@ self.C3_JsPropNameTable = [
 	{backgroundPass: 0},
 	{Bintang: 0},
 	{infoTutorial: 0},
+	{speed: 0},
+	{turning: 0},
 	{Wrap: 0},
-	{GreenYellowRed: 0},
+	{GreenRedYellow: 0},
+	{TileTurn: 0},
+	{TileTurning: 0},
 	{levelJSON: 0},
 	{dataItem: 0},
 	{dataScale: 0},
@@ -4053,7 +4061,8 @@ self.C3_JsPropNameTable = [
 	{startCount: 0},
 	{counting: 0},
 	{counting2: 0},
-	{canPlay: 0}
+	{canPlay: 0},
+	{levell: 0}
 ];
 }
 
@@ -4203,10 +4212,6 @@ self.C3_ExpressionFuncs = [
 		() => "loadNextBox",
 		p => {
 			const n0 = p._GetNode(0);
-			return () => n0.ExpObject("tajuk");
-		},
-		p => {
-			const n0 = p._GetNode(0);
 			return () => n0.ExpObject("adaInfo");
 		},
 		p => {
@@ -4216,6 +4221,14 @@ self.C3_ExpressionFuncs = [
 		},
 		() => 540,
 		() => 775,
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("tajuk");
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("levelname");
+		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const v1 = p._GetNode(1).GetVar();
@@ -4252,7 +4265,18 @@ self.C3_ExpressionFuncs = [
 			const v1 = p._GetNode(1).GetVar();
 			return () => ("Level" + ((f0(v1.GetValue()) + 1)).toString());
 		},
-		() => 1500,
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpBehavior();
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (-n0.ExpObject());
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (-n0.ExpInstVar());
+		},
 		() => 3,
 		() => 558,
 		() => 0.8,
