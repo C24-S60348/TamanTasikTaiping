@@ -3990,6 +3990,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Acts.RestartLayout,
 		C3.Plugins.Sprite.Cnds.OnDestroyed,
 		C3.Plugins.Sprite.Cnds.IsOutsideLayout,
+		C3.Behaviors.Tween.Acts.TweenOneProperty,
 		C3.Plugins.System.Cnds.EveryTick,
 		C3.Behaviors.Physics.Acts.SetVelocity,
 		C3.Behaviors.Physics.Exps.VelocityY,
@@ -3997,10 +3998,10 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Acts.SetSize,
 		C3.Plugins.Sprite.Exps.Width,
 		C3.Plugins.Sprite.Exps.Height,
+		C3.Plugins.Sprite.Acts.SetAngle,
 		C3.Behaviors.Fade.Acts.SetFadeInTime,
 		C3.Behaviors.Fade.Acts.SetFadeOutTime,
 		C3.Behaviors.Fade.Acts.RestartFade,
-		C3.Behaviors.Tween.Acts.TweenOneProperty,
 		C3.Behaviors.Fade.Acts.StartFade,
 		C3.Plugins.System.Acts.SetTimescale,
 		C3.Plugins.System.Cnds.OnLayoutEnd
@@ -4061,6 +4062,11 @@ self.C3_JsPropNameTable = [
 	{startCount: 0},
 	{counting: 0},
 	{counting2: 0},
+	{bintang: 0},
+	{frame: 0},
+	{bintang1: 0},
+	{bintang2: 0},
+	{bintang3: 0},
 	{canPlay: 0},
 	{levell: 0}
 ];
@@ -4258,6 +4264,7 @@ self.C3_ExpressionFuncs = [
 			return () => ("Remaining: " + ((f0(v1.GetValue(), ",") - v2.GetValue())).toString());
 		},
 		() => 5,
+		() => 3,
 		() => 7,
 		() => 6,
 		p => {
@@ -4265,6 +4272,8 @@ self.C3_ExpressionFuncs = [
 			const v1 = p._GetNode(1).GetVar();
 			return () => ("Level" + ((f0(v1.GetValue()) + 1)).toString());
 		},
+		() => 131,
+		() => 126,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpBehavior();
@@ -4277,7 +4286,9 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			return () => (-n0.ExpInstVar());
 		},
-		() => 3,
+		() => 330,
+		() => 536,
+		() => 0.7,
 		() => 558,
 		() => 0.8,
 		() => 0.3,
