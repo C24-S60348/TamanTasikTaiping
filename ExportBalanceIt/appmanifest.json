@@ -1,7 +1,7 @@
 {
 	"name": "Balance It",
 	"short_name": "Balance It",
-	"description": "",
+	"description": "Balance game",
 	"start_url": "index.html",
 	"display": "fullscreen",
 	"orientation": "portrait",
