@@ -1,0 +1,13 @@
+https://www.construct.net/en/tutorials/collaborate-construct-2390/page-3
+
+To ignore them, in GitHub Desktop choose the menu option Repository►Repository settings..., then click Ignored files. Enter *.uistate.json and click Save.
+
+*.uistate.json
+
+
+IGNORE UI STATE FILES
+Before we continue, let's make sure those UI state files we previously mentioned are ignored by GitHub. As noted these are specific to you only and you don't want to be submitting changes for them.
+
+To ignore them, in GitHub Desktop choose the menu option Repository►Repository settings..., then click Ignored files. Enter *.uistate.json and click Save. Now all files ending with .uistate.json will be completely ignored by GitHub, so they won't get in the way causing unwanted changes and conflicts.
+
+Note this counts as a change to the repository, so a change to a file named .gitignore will appear in your first push.
