@@ -1,5 +1,5 @@
 {
-	"name": "Layout 1",
+	"name": "Layout 2",
 	"layers": [
 		{
 			"name": "Layer 0",
@@ -26,12 +26,12 @@
 						"object-top": -1,
 						"object-bottom": -1
 					},
-					"uid": 2,
+					"uid": 3,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 149,
-						"y": 83,
+						"x": 209,
+						"y": 163,
 						"width": 120,
 						"height": 120,
 						"originX": 0.5,
@@ -47,7 +47,7 @@
 					}
 				}
 			],
-			"sid": 213118829095883,
+			"sid": 731529082768938,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
@@ -76,7 +76,7 @@
 			"global": false
 		}
 	],
-	"sid": 502385989768391,
+	"sid": 517086320847825,
 	"nonworld-instances": [],
 	"effectTypes": [],
 	"width": 1440,
